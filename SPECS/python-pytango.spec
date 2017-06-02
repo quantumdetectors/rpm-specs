@@ -163,7 +163,6 @@ All contributions,  `PR and bug reports`_ are welcome!
 python setup.py build
 
 %install
-#export PKG_CONFIG_PATH=/usr/lib
 python setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 %clean
