@@ -1,0 +1,15 @@
+#/bin/bash
+
+if [ -z "$TANGO_HOST" ]; then
+    export TANGO_HOST=localhost:10000
+fi
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64/python2.7/site-packages/Lima/xspress3/Lima/lib
+export PYTHONPATH=$PYTHONPATH:/usr/lib64/python2.7/site-packages/Lima/xspress3
+
+if [ -z "$*" ]; then
+    echo "Please give an instance name."
+    exec python /usr/lib64/python2.7/site-packages/Lima/xspress3/python/LimaCCDs.py -?
+else
+    exec python /usr/lib64/python2.7/site-packages/Lima/xspress3/python/LimaCCDs.py $*
+fi
