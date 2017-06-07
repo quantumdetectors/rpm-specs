@@ -1,6 +1,6 @@
 Name:           python-pytango
 Version:        9.2.1
-Release:        0
+Release:        1%{?dist}
 Url:            http://github.com/tango-cs/pytango
 Summary:        A python binding for the Tango control system
 License:        LGPL
@@ -10,7 +10,7 @@ Packager:       quantumdetectors.com
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Requires:       python-six
 Requires:       numpy
-Requires:       boost-devel
+Requires:       boost
 Requires:       python-wheel
 Requires:	      tango >= 9.2.5
 BuildRequires:  boost-devel
