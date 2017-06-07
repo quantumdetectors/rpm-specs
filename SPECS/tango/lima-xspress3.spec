@@ -12,6 +12,8 @@ Requires:		python-pytango
 Requires: 		python-gevent
 Requires: 		python-bottle
 Requires: 		numpy
+Requires: 		sip
+Requires: 		gsl
 BuildRequires:	gsl-devel
 BuildRequires:	sip-devel
 BuildRequires:	chrpath
