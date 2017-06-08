@@ -17,7 +17,7 @@ BuildRequires:  boost-devel
 BuildRequires:  numpy
 BuildRequires:  python-devel
 BuildRequires:  python-six
-BuildRequires:  tango >= 9.2.5
+BuildRequires:  tango-devel >= 9.2.5
 
 %define python_sitelib %(python -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")
 
