@@ -8,7 +8,7 @@ License:        GPL
 Source:         https://github.com/epicsdeb/deviocstats/archive/debian/%{version}-%{subversion}.tar.gz
 Packager:       quantumdetectors.com
 BuildRoot:      %{_tmppath}/%{name}-%{version}-root
-BuildRequires:  epics-base
+BuildRequires:  epics-base-devel
 Requires:       epics-base
 AutoReqProv:    no
 
@@ -16,6 +16,15 @@ AutoReqProv:    no
 %description
 EPICS Controls System - deviocstats Package
 Ported from https://github.com/epicsdeb/deviocstats
+
+
+%package devel
+Summary: EPICS Deviostats development files
+Provides: %{name}-devel
+Requires: %{name} == %{version}
+
+%description devel
+This package contains necessary header files and static libraries for the EPICS Deviostats module.
 
 
 %prep
@@ -43,6 +52,7 @@ mv dbd %{epics_base}/
 mv db %{epics_base}/
 mv include %{epics_base}/
 mv iocAdmin/srcDisplay/*.edl %{epics_base}/op/edl/
+mv op/adl %{epics_base}/op
 mv debian/ioc_stats_settings.req %{epics_base}/db/
 
 install lib/%{epics_host_arch}/* %{epics_base}/lib/%{epics_host_arch}/
@@ -53,9 +63,6 @@ chmod 644 %{epics_base}/lib/%{epics_host_arch}/*.so
 cd %{epics_base}/lib/%{epics_host_arch}
 ln -sr * ../../../../..%{_libdir}/
 
-cd %{epics_base}/bin/%{epics_host_arch}
-ln -sr * ../../../../..%{_bindir}/
-
 
 %clean
 [ "$RPM_BUILD_ROOT" != "/" ] && %{__rm} -rf $RPM_BUILD_ROOT
@@ -65,9 +72,19 @@ ln -sr * ../../../../..%{_bindir}/
 %defattr(-,root,root,-)
 %{__libdir}/*
 %{_libdir}/*
-# %{_bindir}/*
+%exclude %{__libdir}/epics/include/*
+%exclude %{__libdir}/epics/lib/%{epics_host_arch}/*.a
+%exclude %{_libdir}/*.a
+
+
+%files devel
+%{__libdir}/epics/include/*
+%{__libdir}/epics/lib/%{epics_host_arch}/*.a
+%{_libdir}/*.a
 
 
 %changelog
+* Mon Jun 12 2017 Stu<stu@quantumdetectors.com>
+- Split into devel package
 * Fri Jun 02 2017 Stu<stu@quantumdetectors.com>
 – Initial rpm build

@@ -8,8 +8,8 @@ License:        GPL
 Source:         https://github.com/epicsdeb/busy/archive/debian/%{version}-%{subversion}.tar.gz
 Packager:       quantumdetectors.com
 BuildRoot:      %{_tmppath}/%{name}-%{version}-root
-BuildRequires:  epics-base
-BuildRequires:  epics-asyn
+BuildRequires:  epics-base-devel
+BuildRequires:  epics-asyn-devel
 Requires:       epics-base
 Requires:       epics-asyn
 AutoReqProv:    no
@@ -18,6 +18,15 @@ AutoReqProv:    no
 %description
 EPICS Controls System - Busy Package
 Ported from https://github.com/epicsdeb/busy
+
+
+%package devel
+Summary: EPICS Busy development files
+Provides: %{name}-devel
+Requires: %{name} == %{version}
+
+%description devel
+This package contains necessary header files and static libraries for the EPICS Busy module.
 
 
 %prep
@@ -61,8 +70,19 @@ ln -sr * ../../../../..%{_libdir}/
 %defattr(-,root,root,-)
 %{__libdir}/*
 %{_libdir}/*
+%exclude %{__libdir}/epics/include/*
+%exclude %{__libdir}/epics/lib/%{epics_host_arch}/*.a
+%exclude %{_libdir}/*.a
+
+
+%files devel
+%{__libdir}/epics/include/*
+%{__libdir}/epics/lib/%{epics_host_arch}/*.a
+%{_libdir}/*.a
 
 
 %changelog
+* Mon Jun 12 2017 Stu<stu@quantumdetectors.com>
+- Split into devel package
 * Fri Jun 02 2017 Stu<stu@quantumdetectors.com>
 – Initial rpm build

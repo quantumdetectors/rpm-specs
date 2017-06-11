@@ -7,7 +7,7 @@ License:        GPL
 Source:         https://github.com/epicsdeb/epics-extensions/archive/debian/%{version}.tar.gz
 Packager:       quantumdetectors.com
 BuildRoot:      %{_tmppath}/%{name}-%{version}-root
-BuildRequires:  rsync
+Requires:		epics-base
 
 
 %description

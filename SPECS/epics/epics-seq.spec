@@ -9,7 +9,7 @@ Source:         https://github.com/epicsdeb/seq/archive/debian/%{version}-%{subv
 Packager:       quantumdetectors.com
 BuildRoot:      %{_tmppath}/%{name}-%{version}-root
 BuildRequires:  re2c
-BuildRequires:  epics-base
+BuildRequires:  epics-base-devel
 Requires:       epics-base
 AutoReqProv:    no
 
@@ -18,11 +18,19 @@ EPICS Controls System - Seq Module
 Ported from https://github.com/epicsdeb/seq
 
 
+%package devel
+Summary: EPICS Seq development files
+Provides: %{name}-devel
+Requires: %{name} == %{version}
+
+%description devel
+This package contains necessary header files and static libraries for the EPICS Seq module.
+
+
 %prep
 %setup -q -n seq-debian-%{version}-%{subversion}
 git apply debian/patches/0001-Set-EPICS_BASE-correctly.patch
 %define epics_host_arch %(/usr/lib/epics/startup/EpicsHostArch)
-# export EPICS_HOST_ARCH=%{epics_host_arch}
 
 
 %build
@@ -77,8 +85,19 @@ ln -sr * ../../../../..%{_bindir}/
 %{__libdir}/*
 %{_libdir}/*
 %{_bindir}/*
+%exclude %{__libdir}/epics/include/*
+%exclude %{__libdir}/epics/lib/%{epics_host_arch}/*.a
+%exclude %{_libdir}/*.a
+
+
+%files devel
+%{__libdir}/epics/include/*
+%{__libdir}/epics/lib/%{epics_host_arch}/*.a
+%{_libdir}/*.a
 
 
 %changelog
+* Mon Jun 12 2017 Stu<stu@quantumdetectors.com>
+- Split into devel package
 * Fri Jun 02 2017 Stu<stu@quantumdetectors.com>
 – Initial rpm build

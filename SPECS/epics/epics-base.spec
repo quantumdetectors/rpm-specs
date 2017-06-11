@@ -16,6 +16,16 @@ AutoReqProv:    no
 EPICS Controls System - Base Package
 Ported from https://github.com/epicsdeb/epics-base
 
+
+%package devel
+Summary: EPICS base development files
+Provides: %{name}-devel
+Requires: %{name} == %{version}
+
+%description devel
+This package contains necessary header files and static libraries for EPICS development.
+
+
 %prep
 %setup -q -n epics-base-debian-%{version}-%{subversion}
 git apply debian/patches/0002-look-for-base-config-in-etc-epics-configure.patch
@@ -123,52 +133,6 @@ ln -sr ./EpicsHostArch ../lib/host
 cd %{epics_base}
 ln -sr configure ../../..%{_sysconfdir}/epics/
 
-# %post
-# %define epics_base %{__libdir}/epics
-# %{__ln_s} %{epics_base}/bin/*/ascheck %{_bindir}/
-# %{__ln_s} %{epics_base}/bin/*/makeBaseApp.pl %{_bindir}/
-# %{__ln_s} %{epics_base}/bin/*/makeBaseExt.pl %{_bindir}/
-# %{__ln_s} %{epics_base}/bin/*/iocLogServer %{_bindir}/
-# %{__ln_s} %{epics_base}/bin/*/msi %{_bindir}/
-# %{__ln_s} %{epics_base}/bin/*/caget %{_bindir}/
-# %{__ln_s} %{epics_base}/bin/*/cainfo %{_bindir}/
-# %{__ln_s} %{epics_base}/bin/*/camonitor %{_bindir}/
-# %{__ln_s} %{epics_base}/bin/*/caput %{_bindir}/
-# %{__ln_s} %{epics_base}/bin/*/caRepeater %{_bindir}/
-# %{__ln_s} %{epics_base}/bin/*/casw %{_bindir}/
-# %{__ln_s} %{epics_base}/configure %{_sysconfdir}/epics/
-
-# %{__ln_s} %{epics_base}/lib/linux-*/libCom.so.%{version} %{_libdir}/
-# %{__ln_s} %{epics_base}/lib/linux-*/libca.so.%{version} %{_libdir}/
-# %{__ln_s} %{epics_base}/lib/linux-*/libgdd.so.%{version} %{_libdir}/
-# %{__ln_s} %{epics_base}/lib/linux-*/libcas.so.%{version} %{_libdir}/
-# %{__ln_s} %{epics_base}/lib/linux-*/libdbCore.so.%{version} %{_libdir}/
-# %{__ln_s} %{epics_base}/lib/linux-*/libdbRecStd.so.%{version} %{_libdir}/
-
-# # This path is used by CA.pm
-# ln -s %{epics_base}/startup/EpicsHostArch %{epics_base}/lib/host
-
-# %postun
-# rm -f %{_bindir}/ascheck
-# rm -f %{_bindir}/makeBaseApp.pl
-# rm -f %{_bindir}/makeBaseExt.pl
-# rm -f %{_bindir}/iocLogServer
-# rm -f %{_bindir}/msi
-# rm -f %{_bindir}/caget
-# rm -f %{_bindir}/cainfo
-# rm -f %{_bindir}/camonitor
-# rm -f %{_bindir}/caput
-# rm -f %{_bindir}/caRepeater
-# rm -f %{_bindir}/casw
-# rm -f %{_sysconfdir}/epics/configure
-
-# rm -f %{_libdir}/libCom.so.%{version}
-# rm -f %{_libdir}/libca.so.%{version}
-# rm -f %{_libdir}/libgdd.so.%{version}
-# rm -f %{_libdir}/libcas.so.%{version}
-# rm -f %{_libdir}/libdbCore.so.%{version}
-# rm -f %{_libdir}/libdbRecStd.so.%{version}
-
 
 %clean
 [ "$RPM_BUILD_ROOT" != "/" ] && %{__rm} -rf $RPM_BUILD_ROOT
@@ -180,7 +144,21 @@ ln -sr configure ../../..%{_sysconfdir}/epics/
 %{_sysconfdir}/*
 %{_libdir}/*
 %{_bindir}/*
+%exclude %{__libdir}/epics/lib/%{epics_host_arch}/*.a
+%exclude %{__libdir}/epics/include/*
+%exclude %{_libdir}/*.a
+%exclude %{_datadir}/pkgconfig/*
+
+
+%files devel
+%{__libdir}/epics/include/*
+%{__libdir}/epics/lib/%{epics_host_arch}/*.a
+%{_libdir}/*.a
+%{_datadir}/pkgconfig/*
+
 
 %changelog
+* Mon Jun 12 2017 Stu<stu@quantumdetectors.com>
+- Split into devel package
 * Fri Jun 02 2017 Stu<stu@quantumdetectors.com>
 – Initial rpm build

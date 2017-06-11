@@ -9,7 +9,7 @@ Source:         MEDM%{version}_%{subversion}.tar.gz
 Packager:       quantumdetectors.com
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{subversion}-root
 BuildRequires:  git
-BuildRequires:  epics-base
+BuildRequires:  epics-base-devel
 BuildRequires:  epics-extensions
 Requires:       epics-base
 Requires:       epics-extensions
@@ -18,6 +18,15 @@ AutoReqProv:    no
 
 %description
 EPICS Controls System - MEDM
+
+
+%package devel
+Summary: EPICS MEDM development files
+Provides: %{name}-devel
+Requires: %{name} == %{version}
+
+%description devel
+This package contains necessary header files and static libraries for EPICS MEDM
 
 
 %prep
@@ -64,8 +73,15 @@ chrpath --delete %{buildroot}%{_bindir}/medm
 %defattr(-,root,root,-)
 %{_bindir}/*
 %{_libdir}/*
+%exclude %{_libdir}/*.a
+
+
+%files devel
+%{_libdir}/*.a
 
 
 %changelog
+* Mon Jun 12 2017 Stu<stu@quantumdetectors.com>
+- Split into devel package
 * Tue Jun 06 2017 Stu<stu@quantumdetectors.com>
 – Initial rpm build

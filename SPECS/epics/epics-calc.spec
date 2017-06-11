@@ -8,9 +8,9 @@ License:        GPL
 Source:         https://github.com/epicsdeb/calc/archive/debian/%{version}-%{subversion}.tar.gz
 Packager:       quantumdetectors.com
 BuildRoot:      %{_tmppath}/%{name}-%{version}-root
-BuildRequires:  epics-base
-BuildRequires:  epics-seq
-BuildRequires:  epics-sscan
+BuildRequires:  epics-base-devel
+BuildRequires:  epics-seq-devel
+BuildRequires:  epics-sscan-devel
 Requires:       epics-base
 Requires:       epics-seq
 Requires:       epics-sscan
@@ -20,6 +20,15 @@ AutoReqProv:    no
 %description
 EPICS Controls System - Calc Package
 Ported from https://github.com/epicsdeb/calc
+
+
+%package devel
+Summary: EPICS Calc development files
+Requires: epics-calc
+Provides: epics-calc-devel
+
+%description devel
+This package contains necessary header files and static libraries for the EPICS Calc module.
 
 
 %prep
@@ -63,8 +72,19 @@ ln -sr * ../../../../..%{_libdir}/
 %defattr(-,root,root,-)
 %{__libdir}/*
 %{_libdir}/*
+%exclude %{__libdir}/epics/include/*
+%exclude %{__libdir}/epics/lib/%{epics_host_arch}/*.a
+%exclude %{_libdir}/*.a
+
+
+%files devel
+%{__libdir}/epics/include/*
+%{__libdir}/epics/lib/%{epics_host_arch}/*.a
+%{_libdir}/*.a
 
 
 %changelog
+* Mon Jun 12 2017 Stu<stu@quantumdetectors.com>
+- Split into devel package
 * Fri Jun 02 2017 Stu<stu@quantumdetectors.com>
 – Initial rpm build

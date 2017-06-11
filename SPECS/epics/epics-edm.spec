@@ -9,7 +9,7 @@ Source:         https://github.com/epicsdeb/edm/archive/debian/%{version}-%{subv
 Packager:       quantumdetectors.com
 BuildRoot:      %{_tmppath}/%{name}-%{version}-5-root
 BuildRequires:  git
-BuildRequires:  epics-base
+BuildRequires:  epics-base-devel
 BuildRequires:  epics-extensions
 BuildRequires:  libXt-devel
 BuildRequires:  libXmu-devel

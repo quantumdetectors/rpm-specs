@@ -8,13 +8,13 @@ License:        GPL
 Packager:       quantumdetectors.com
 BuildRoot:      %{_tmppath}/%{name}-%{version}-root
 BuildRequires:	git
-BuildRequires:  epics-base
-BuildRequires:  epics-areadetector
-BuildRequires:  epics-asyn
-BuildRequires:  epics-calc
-BuildRequires:  epics-busy
-BuildRequires:  epics-deviocstats
-BuildRequires:  epics-spectraplugins
+BuildRequires:  epics-base-devel
+BuildRequires:  epics-areadetector-devel
+BuildRequires:  epics-asyn-devel
+BuildRequires:  epics-calc-devel
+BuildRequires:  epics-busy-devel
+BuildRequires:  epics-deviocstats-devel
+BuildRequires:  epics-spectraplugins-devel
 Requires:       epics-base
 Requires:       epics-areadetector
 Requires:       epics-asyn
@@ -27,6 +27,15 @@ AutoReqProv:    no
 
 %description
 EPICS Controls System - Xspress 3
+
+
+%package devel
+Summary: EPICS Xspress3 development files
+Provides: %{name}-devel
+Requires: %{name} == %{version}
+
+%description devel
+This package contains necessary header files and static libraries for the EPICS Xspress3 module.
 
 
 %prep
@@ -127,8 +136,19 @@ ln -sr xspress3-ioc.sh ../../../../..%{_bindir}/
 %{_libdir}/*
 %{_bindir}/*
 %{_sysconfdir}/*
+%exclude %{__libdir}/epics/include/*
+%exclude %{__libdir}/epics/lib/%{epics_host_arch}/*.a
+%exclude %{_libdir}/*.a
+
+
+%files devel
+%{__libdir}/epics/include/*
+%{__libdir}/epics/lib/%{epics_host_arch}/*.a
+%{_libdir}/*.a
 
 
 %changelog
+* Mon Jun 12 2017 Stu<stu@quantumdetectors.com>
+- Split into devel package
 * Wed Jun 07 2017 Stu<stu@quantumdetectors.com>
 – Initial rpm build
