@@ -26,8 +26,10 @@ Requires:       epics-sscan
 Requires:       epics-autosave
 Requires:       netcdf
 Requires:		GraphicsMagick
+Requires:		GraphicsMagick-c++
 Requires:		libtiff
 Requires:		CBFlib
+Requires:		libpng12
 AutoReqProv:    no
 
 

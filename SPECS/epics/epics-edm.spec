@@ -28,6 +28,7 @@ Requires:       motif
 Requires:       giflib
 Requires:       zlib
 Requires:       libpng
+Requires:       gtk2
 AutoReqProv:    no
 
 
