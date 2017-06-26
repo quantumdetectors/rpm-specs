@@ -15,9 +15,9 @@ BuildRequires:  epics-busy-devel
 BuildRequires:  epics-sscan-devel
 BuildRequires:  epics-autosave-devel
 BuildRequires:  netcdf-devel
-BuildRequires:	GraphicsMagick-devel
-BuildRequires:	libtiff-devel
-BuildRequires:	CBFlib-devel
+BuildRequires:  GraphicsMagick-devel
+BuildRequires:  libtiff-devel
+BuildRequires:  CBFlib-devel
 Requires:       epics-base
 Requires:       epics-asyn
 Requires:       epics-calc
@@ -25,11 +25,11 @@ Requires:       epics-busy
 Requires:       epics-sscan
 Requires:       epics-autosave
 Requires:       netcdf
-Requires:		GraphicsMagick
-Requires:		GraphicsMagick-c++
-Requires:		libtiff
-Requires:		CBFlib
-Requires:		libpng12
+Requires:       GraphicsMagick
+Requires:       GraphicsMagick-c++
+Requires:       libtiff
+Requires:       CBFlib
+Requires:       libpng12
 AutoReqProv:    no
 
 
