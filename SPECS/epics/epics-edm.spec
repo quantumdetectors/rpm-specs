@@ -29,6 +29,8 @@ Requires:       giflib
 Requires:       zlib
 Requires:       libpng
 Requires:       gtk2
+Requires:       xorg-x11-fonts-Type1
+Requires:       xorg-x11-fonts-75dpi
 AutoReqProv:    no
 
 
@@ -168,5 +170,7 @@ chrpath --delete %{buildroot}%{_libdir}/edm/*.so
 %{_sysconfdir}/*
 
 %changelog
+* Mon Jun 26 2017 Stu<stu@quantumdetectors.com>
+- Missing dependency
 * Fri Jun 02 2017 Stu<stu@quantumdetectors.com>
 – Initial rpm build

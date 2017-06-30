@@ -120,6 +120,8 @@ ln -sr * ../../../../..%{_libdir}/
 
 
 %changelog
+* Mon Jun 26 2017 Stu<stu@quantumdetectors.com>
+- Missing dependency
 * Mon Jun 12 2017 Stu<stu@quantumdetectors.com>
 - Split into devel package
 * Fri Jun 02 2017 Stu<stu@quantumdetectors.com>

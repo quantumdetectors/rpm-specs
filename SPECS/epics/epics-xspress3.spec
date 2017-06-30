@@ -148,6 +148,10 @@ ln -sr xspress3-ioc.sh ../../../../..%{_bindir}/
 
 
 %changelog
+* Mon Jun 26 2017 Stu<stu@quantumdetectors.com>
+- X3m 4 channel ioc
+* Mon Jun 26 2017 Stu<stu@quantumdetectors.com>
+- Update edm screens
 * Mon Jun 12 2017 Stu<stu@quantumdetectors.com>
 - Split into devel package
 * Wed Jun 07 2017 Stu<stu@quantumdetectors.com>
