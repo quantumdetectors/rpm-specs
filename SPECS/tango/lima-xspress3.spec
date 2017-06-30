@@ -124,6 +124,8 @@ export TANGO_HOST=localhost:10000
 %{python_sitelib}/Lima/xspress3/createdevice.py -n xspress3
 
 %changelog
+* Fri Jun 30 2017 Stu<stu@quantumdetectors.com>
+– Multicard support, updated test scripts
 * Thu Jun 08 2017 Stu<stu@quantumdetectors.com>
 – Remove patch, build from git, sync with qd master, install tests and helper scripts
 * Fri Jun 02 2017 Stu<stu@quantumdetectors.com>

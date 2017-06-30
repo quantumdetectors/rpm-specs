@@ -56,5 +56,7 @@ ln -sr remote.py ../../../../..%{_bindir}/xspress3-autocalib.py
 
 
 %changelog
+* Fri Jun 30 2017 Stu<stu@quantumdetectors.com>
+– Multicard support
 * Mon Jun 12 2017 Stu<stu@quantumdetectors.com>
 – Initial rpm build
