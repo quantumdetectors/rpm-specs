@@ -1,7 +1,7 @@
 Name:           epics-xspress3
 Version:        1
 %define         subversion 13
-Release:        1%{?dist}
+Release:        2%{?dist}
 Url:            https://github.com/quantumdetectors/xspress3-epics
 Summary:        EPICS Xspress 3 Module
 License:        GPL
