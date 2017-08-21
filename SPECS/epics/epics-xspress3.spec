@@ -148,6 +148,8 @@ ln -sr xspress3-ioc.sh ../../../../..%{_bindir}/
 
 
 %changelog
+* Mon Aug 21 2017 Stu<stu@quantumdetectors.com>
+- 2 channel ioc
 * Mon Jun 26 2017 Stu<stu@quantumdetectors.com>
 - X3m 4 channel ioc
 * Mon Jun 26 2017 Stu<stu@quantumdetectors.com>
