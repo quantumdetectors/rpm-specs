@@ -1,6 +1,6 @@
 Name:           xspress3-autocalib
 Version:        1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Url:            https://gitlab.com/xspress3/xspress3-autocalib
 Summary:        Xspress 3 Autocalibration Suite
 License:        GPL
@@ -56,6 +56,8 @@ ln -sr remote.py ../../../../..%{_bindir}/xspress3-autocalib.py
 
 
 %changelog
+* Thu Nov 02 2017 Stu<stu@quantumdetectors.com>
+– Various multicard fixes and updates, new measure reset tail
 * Tue Oct 03 2017 Stu<stu@quantumdetectors.com>
 – More multicard support, autorange individual channels
 * Fri Jun 30 2017 Stu<stu@quantumdetectors.com>
