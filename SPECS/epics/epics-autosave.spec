@@ -22,6 +22,7 @@ Ported from https://github.com/epicsdeb/autosave
 Summary: EPICS Autosave development files
 Provides: %{name}-devel
 Requires: %{name} == %{version}
+Requires: epics-base-devel
 
 %description devel
 This package contains necessary header files and static libraries for the EPICS Autosave module.
@@ -93,6 +94,8 @@ ln -sr * ../../../../..%{_libdir}/
 
 
 %changelog
+* Thu Jan 10 2018 Stu<stu@quantumdetectors.com>
+- Add devel package dependencies
 * Mon Jun 12 2017 Stu<stu@quantumdetectors.com>
 - Split into devel package
 * Fri Jun 02 2017 Stu<stu@quantumdetectors.com>

@@ -24,6 +24,8 @@ EPICS Controls System - MEDM
 Summary: EPICS MEDM development files
 Provides: %{name}-devel
 Requires: %{name} == %{version}
+Requires: epics-base-devel
+Requires: epics-extensions
 
 %description devel
 This package contains necessary header files and static libraries for EPICS MEDM
@@ -81,6 +83,8 @@ chrpath --delete %{buildroot}%{_bindir}/medm
 
 
 %changelog
+* Thu Jan 10 2018 Stu<stu@quantumdetectors.com>
+- Add devel package dependencies
 * Mon Jun 12 2017 Stu<stu@quantumdetectors.com>
 - Split into devel package
 * Tue Jun 06 2017 Stu<stu@quantumdetectors.com>

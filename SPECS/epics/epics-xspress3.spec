@@ -33,6 +33,13 @@ EPICS Controls System - Xspress 3
 Summary: EPICS Xspress3 development files
 Provides: %{name}-devel
 Requires: %{name} == %{version}
+Requires: epics-base-devel
+Requires: epics-areadetector-devel
+Requires: epics-asyn-devel
+Requires: epics-calc-devel
+Requires: epics-busy-devel
+Requires: epics-deviocstats-devel
+Requires: epics-spectraplugins-devel
 
 %description devel
 This package contains necessary header files and static libraries for the EPICS Xspress3 module.
@@ -148,6 +155,8 @@ ln -sr xspress3-ioc.sh ../../../../..%{_bindir}/
 
 
 %changelog
+* Thu Jan 10 2018 Stu<stu@quantumdetectors.com>
+- Add devel package dependencies
 * Mon Aug 21 2017 Stu<stu@quantumdetectors.com>
 - 2 channel ioc
 * Mon Jun 26 2017 Stu<stu@quantumdetectors.com>

@@ -9,6 +9,8 @@ Source:         https://github.com/epicsdeb/epics-base/archive/debian/%{version}
 Packager:       quantumdetectors.com
 BuildRoot:      %{_tmppath}/%{name}-%{version}-root
 BuildRequires:  git
+BuildRequires:  gcc-c++
+BuildRequires:  readline-devel
 AutoReqProv:    no
 
 
@@ -21,6 +23,8 @@ Ported from https://github.com/epicsdeb/epics-base
 Summary: EPICS base development files
 Provides: %{name}-devel
 Requires: %{name} == %{version}
+Requires: gcc-c++
+Requires: readline-devel
 
 %description devel
 This package contains necessary header files and static libraries for EPICS development.

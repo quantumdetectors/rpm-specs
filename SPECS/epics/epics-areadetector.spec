@@ -16,8 +16,18 @@ BuildRequires:  epics-sscan-devel
 BuildRequires:  epics-autosave-devel
 BuildRequires:  netcdf-devel
 BuildRequires:  GraphicsMagick-devel
+BuildRequires:  GraphicsMagick-c++-devel
 BuildRequires:  libtiff-devel
 BuildRequires:  CBFlib-devel
+BuildRequires:  libpng12-devel
+BuildRequires:  libjpeg-turbo-devel
+BuildRequires:  hdf5-devel
+BuildRequires:  zlib-devel
+BuildRequires:  bzip2-devel
+BuildRequires:  libxml2-devel
+BuildRequires:  freetype-devel
+BuildRequires:  libXext-devel
+BuildRequires:  libX11-devel
 Requires:       epics-base
 Requires:       epics-asyn
 Requires:       epics-calc
@@ -30,6 +40,14 @@ Requires:       GraphicsMagick-c++
 Requires:       libtiff
 Requires:       CBFlib
 Requires:       libpng12
+Requires:       libjpeg-turbo
+Requires:       hdf5
+Requires:       zlib
+Requires:       bzip2
+Requires:       libxml2
+Requires:       freetype
+Requires:       libXext
+Requires:       libX11
 AutoReqProv:    no
 
 
@@ -42,6 +60,26 @@ Ported from https://github.com/epicsdeb/areadetector
 Summary: EPICS Areadetector development files
 Provides: %{name}-devel
 Requires: %{name} == %{version}
+Requires: epics-base-devel
+Requires: epics-asyn-devel
+Requires: epics-calc-devel
+Requires: epics-busy-devel
+Requires: epics-sscan-devel
+Requires: epics-autosave-devel
+Requires: netcdf-devel
+Requires: GraphicsMagick-devel
+Requires: GraphicsMagick-c++-devel
+Requires: libtiff-devel
+Requires: CBFlib-devel
+Requires: libpng12-devel
+Requires: libjpeg-turbo-devel
+Requires: hdf5-devel
+Requires: zlib-devel
+Requires: bzip2-devel
+Requires: libxml2-devel
+Requires: freetype-devel
+Requires: libXext-devel
+Requires: libX11-devel
 
 %description devel
 This package contains necessary header files and static libraries for the EPICS Areadetector module.
@@ -120,6 +158,8 @@ ln -sr * ../../../../..%{_libdir}/
 
 
 %changelog
+* Thu Jan 10 2018 Stu<stu@quantumdetectors.com>
+- Add devel package dependencies
 * Mon Jun 26 2017 Stu<stu@quantumdetectors.com>
 - Missing dependency
 * Mon Jun 12 2017 Stu<stu@quantumdetectors.com>
