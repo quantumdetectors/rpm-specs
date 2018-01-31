@@ -10,6 +10,7 @@ Packager:       quantumdetectors.com
 BuildRoot:      %{_tmppath}/%{name}-%{version}-root
 BuildRequires:  git
 BuildRequires:  gcc-c++
+BuildRequires:  chrpath
 BuildRequires:  readline-devel
 AutoReqProv:    no
 
@@ -24,6 +25,7 @@ Summary: EPICS base development files
 Provides: %{name}-devel
 Requires: %{name} == %{version}
 Requires: gcc-c++
+Requires: chrpath
 Requires: readline-devel
 
 %description devel
