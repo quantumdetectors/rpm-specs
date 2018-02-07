@@ -1,7 +1,7 @@
 Name:           epics-xspress3-subframe
 Version:        1
 %define         subversion 13
-Release:        2%{?dist}
+Release:        3%{?dist}
 Url:            https://github.com/quantumdetectors/xspress3-epics
 Summary:        EPICS Xspress 3 Module
 License:        GPL
@@ -77,6 +77,9 @@ install -d %{epics_base}/op/adl
 install -d %{buildroot}%{_libdir}/
 install -d %{buildroot}%{_bindir}/
 install -m 777 -d %{buildroot}%{_sysconfdir}/epics/xspress3/settings
+
+install -d %{buildroot}%{_sysconfdir}/profile.d
+install etc/profile.d/epics.sh %{buildroot}%{_sysconfdir}/profile.d/
 
 mv dbd %{epics_base}/
 mv db %{epics_base}/
@@ -159,5 +162,7 @@ ln -sr xspress3-ioc.sh ../../../../..%{_bindir}/
 
 
 %changelog
+* Wed Feb 7 2018 Stu<stu@quantumdetectors.com>
+- Update all ROI/SCA lengths, remove old settings, add epics.sh
 * Wed Jan 17 2018 Stu<stu@quantumdetectors.com>
 - Initial subframe build
