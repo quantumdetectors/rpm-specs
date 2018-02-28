@@ -1,6 +1,6 @@
 Name:           xspress3-autocalib
 Version:        1
-Release:        3%{?dist}
+Release:        4%{?dist}
 Url:            https://gitlab.com/xspress3/xspress3-autocalib
 Summary:        Xspress 3 Autocalibration Suite
 License:        GPL
@@ -56,6 +56,8 @@ ln -sr remote.py ../../../../..%{_bindir}/xspress3-autocalib.py
 
 
 %changelog
+* Wed Feb 28 2018 Stu<stu@quantumdetectors.com>
+- New ROI peak fitting, cmd line args, non blocking mca, various minor fixes
 * Thu Nov 02 2017 Stu<stu@quantumdetectors.com>
 – Various multicard fixes and updates, new measure reset tail
 * Tue Oct 03 2017 Stu<stu@quantumdetectors.com>
