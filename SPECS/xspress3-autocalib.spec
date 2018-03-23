@@ -1,6 +1,6 @@
 Name:           xspress3-autocalib
 Version:        1
-Release:        4%{?dist}
+Release:        5%{?dist}
 Url:            https://gitlab.com/xspress3/xspress3-autocalib
 Summary:        Xspress 3 Autocalibration Suite
 License:        GPL
@@ -43,6 +43,9 @@ mv xspress3-autocalib %{buildroot}%{python_sitelib}/
 cd %{buildroot}%{python_sitelib}/xspress3-autocalib
 ln -sr remote.py ../../../../..%{_bindir}/xspress3-autocalib.py
 
+ln -sr bin/xspress3.server.6 ../../../../..%{_bindir}/xspress3.server
+ln -sr bin/imgd.6 ../../../../..%{_bindir}/imgd
+
 
 %clean
 [ "$RPM_BUILD_ROOT" != "/" ] && %{__rm} -rf $RPM_BUILD_ROOT
@@ -56,6 +59,8 @@ ln -sr remote.py ../../../../..%{_bindir}/xspress3-autocalib.py
 
 
 %changelog
+* Mon Mar 12 2018 Stu<stu@quantumdetectors.com>
+- Link x3.server and imgd into path, bug in meas gain
 * Wed Feb 28 2018 Stu<stu@quantumdetectors.com>
 - New ROI peak fitting, cmd line args, non blocking mca, various minor fixes
 * Thu Nov 02 2017 Stu<stu@quantumdetectors.com>
