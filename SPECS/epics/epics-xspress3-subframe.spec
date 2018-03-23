@@ -1,7 +1,7 @@
 Name:           epics-xspress3-subframe
 Version:        1
 %define         subversion 13
-Release:        3%{?dist}
+Release:        4%{?dist}
 Url:            https://github.com/quantumdetectors/xspress3-epics
 Summary:        EPICS Xspress 3 Module
 License:        GPL
@@ -85,7 +85,7 @@ mv dbd %{epics_base}/
 mv db %{epics_base}/
 mv include %{epics_base}/
 
-install bin/%{epics_host_arch}/* %{epics_base}/bin/%{epics_host_arch}/
+#install bin/%{epics_host_arch}/* %{epics_base}/bin/%{epics_host_arch}/
 install lib/%{epics_host_arch}/* %{epics_base}/lib/%{epics_host_arch}/
 install data/*.edl %{epics_base}/op/edl/
 install data/*.adl %{epics_base}/op/adl/
@@ -117,10 +117,10 @@ chmod 644 %{epics_base}/iocBoot/xspress3/*/db/*
 
 chmod 644 %{epics_base}/lib/%{epics_host_arch}/*.a
 chmod 644 %{epics_base}/lib/%{epics_host_arch}/*.so
-chmod 755 %{epics_base}/bin/%{epics_host_arch}/*
+#chmod 755 %{epics_base}/bin/%{epics_host_arch}/*
 
 chrpath --delete %{epics_base}/lib/%{epics_host_arch}/*.so
-chrpath --delete %{epics_base}/bin/%{epics_host_arch}/*
+#chrpath --delete %{epics_base}/bin/%{epics_host_arch}/*
 
 export GLOBIGNORE="*.sh:*-gui:*.boot"
 chrpath --delete %{epics_base}/iocBoot/xspress3/*/bin/%{epics_host_arch}/*
@@ -129,8 +129,8 @@ unset GLOBIGNORE
 cd %{epics_base}/lib/%{epics_host_arch}
 ln -sr * ../../../../..%{_libdir}/
 
-cd %{epics_base}/bin/%{epics_host_arch}
-ln -sr * ../../../../..%{_bindir}/
+#cd %{epics_base}/bin/%{epics_host_arch}
+#ln -sr * ../../../../..%{_bindir}/
 
 cd %{epics_base}/iocBoot/xspress3/xspress3Example/bin/%{epics_host_arch}
 ln -sr xspress3-medm.sh ../../../../../../../..%{_bindir}/
@@ -162,6 +162,8 @@ ln -sr xspress3-ioc.sh ../../../../..%{_bindir}/
 
 
 %changelog
+* Mon Mar 12 2018 Stu<stu@quantumdetectors.com>
+- Remove x3.server and imgd
 * Wed Feb 7 2018 Stu<stu@quantumdetectors.com>
 - Update all ROI/SCA lengths, remove old settings, add epics.sh
 * Wed Jan 17 2018 Stu<stu@quantumdetectors.com>
