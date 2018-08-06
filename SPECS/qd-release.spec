@@ -1,7 +1,7 @@
 Name:           qd-release
 Version:        1.0.0
 Release:        1%{?dist}
-Summary:        RPM Package containing my repository file and GPG Key
+Summary:        QD repository file and GPG Key
 Packager:       quantumdetectors.com
 License:        GPL
 URL:            https://github.com/quantumdetectors/rpm-specs
@@ -32,8 +32,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-/etc/yum.repos.d/qd.repo
-/etc/pki/rpm-gpg/RPM-GPG-KEY-qd
+%{_sysconfdir}/yum.repos.d/qd.repo
+%{_sysconfdir}/pki/rpm-gpg/RPM-GPG-KEY-qd
+
+
+%post
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-qd
+
 
 %changelog
 * Tue Jul 31 2018 Stu Fisher <stu@quantumdetectors.com> 1.0.0
