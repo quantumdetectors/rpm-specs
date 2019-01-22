@@ -1,7 +1,7 @@
 Name:           epics-xspress3
 Version:        1
 %define         subversion 13
-Release:        4%{?dist}
+Release:        5%{?dist}
 Url:            https://github.com/quantumdetectors/xspress3-epics
 Summary:        EPICS Xspress 3 Module
 License:        GPL
@@ -100,7 +100,7 @@ done
 rm -rf %{epics_base}/iocBoot/xspress3/*/example*
 
 
-sed -r -i -e 's|cd "%{_builddir}/%{name}-%{version}-%{subversion}/iocs/(example[0-9]+Channel)"|cd "/usr/lib/epics/iocBoot/xspress3/\1"|' %{epics_base}/iocBoot/xspress3/*/bin/%{epics_host_arch}/*.boot
+sed -r -i -e 's|cd "%{_builddir}/%{name}-%{version}-%{subversion}/iocs/(example[0-9]+Channel(Mini)?)"|cd "/usr/lib/epics/iocBoot/xspress3/\1"|' %{epics_base}/iocBoot/xspress3/*/bin/%{epics_host_arch}/*.boot
 sed -r -i -e 's|dbpf\("XSPRESS3-EXAMPLE:CONFIG_PATH", "%{_builddir}/%{name}-%{version}-%{subversion}/xspress3_settings/([0-9]+channel)"\)|dbpf\("XSPRESS3-EXAMPLE:CONFIG_PATH", "/etc/epics/xspress3/settings/\1"\)|' %{epics_base}/iocBoot/xspress3/*/bin/%{epics_host_arch}/*.boot
 sed -r -i -e 's|dbpf XSPRESS3-EXAMPLE:NDAttributesFile, example[0-9]+ChannelApp/(data/XSP3.xml)|dbpf XSPRESS3-EXAMPLE:NDAttributesFile, \1|' %{epics_base}/iocBoot/xspress3/*/bin/%{epics_host_arch}/*.boot
 
@@ -158,6 +158,8 @@ ln -sr xspress3-ioc.sh ../../../../..%{_bindir}/
 
 
 %changelog
+* Tue Jan 22 2019 Stu<stu@quantumdetectors.com>
+- Bump sdk for X4, add X3m IOCs, limit frames for X3m
 * Mon Mar 12 2018 Stu<stu@quantumdetectors.com>
 - Remove x3.server and imgd
 * Wed Feb 7 2018 Stu<stu@quantumdetectors.com>
