@@ -124,6 +124,8 @@ export TANGO_HOST=localhost:10000
 %{python_sitelib}/Lima/xspress3/createdevice.py -n xspress3
 
 %changelog
+* Fri Feb 15 2019 Stu<stu@quantumdetectors.com>
+– SDK Bump, X4 Support
 * Fri Jun 30 2017 Stu<stu@quantumdetectors.com>
 – Multicard support, updated test scripts
 * Thu Jun 08 2017 Stu<stu@quantumdetectors.com>
