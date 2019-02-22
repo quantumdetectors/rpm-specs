@@ -1,6 +1,6 @@
 Name:           lima-xspress3
 Version:        1.74
-Release:        1%{?dist}
+Release:        2%{?dist}
 Url:            https://github.com/quantumdetectors/Lima-camera-xspress3
 Summary:        Lima Xspress 3 Device Server
 License:        GPL
@@ -16,6 +16,10 @@ BuildRequires:  gsl-devel
 BuildRequires:  sip-devel
 BuildRequires:  chrpath
 AutoReqProv:    no
+
+# Run this spec with:
+#   QA_SKIP_BUILD_ROOT=1 rpmbuild -bb .
+# For some reason check-buildroot still finds references to the ${BUILDROOT}
 
 %define python_sitelib %(python -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")
 
@@ -37,10 +41,12 @@ git submodule init third-party/Processlib third-party/Sps third-party/libconfig 
 git submodule init camera/xspress3
 git submodule init applications/tango/python
 
+sed -i -e 's|git://|https://|' .gitmodules
+git submodule sync
 git submodule update
 
-sed -i -e 's|git://github.com/esrf-bliss/Lima-camera-xspress3|git://github.com/quantumdetectors/Lima-camera-xspress3|' .gitmodules
-sed -i -e 's|git://github.com/esrf-bliss/Lima-tango-python|git://github.com/quantumdetectors/Lima-tango-python|' .gitmodules
+sed -i -e 's|https://github.com/esrf-bliss/Lima-camera-xspress3|https://github.com/quantumdetectors/Lima-camera-xspress3|' .gitmodules
+sed -i -e 's|https://github.com/esrf-bliss/Lima-tango-python|https://github.com/quantumdetectors/Lima-tango-python|' .gitmodules
 
 git submodule sync
 git submodule update
