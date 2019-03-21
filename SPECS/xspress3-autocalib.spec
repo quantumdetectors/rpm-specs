@@ -1,6 +1,6 @@
 Name:           xspress3-autocalib
 Version:        1
-Release:        7%{?dist}
+Release:        8%{?dist}
 Url:            https://gitlab.com/xspress3/xspress3-autocalib
 Summary:        Xspress 3 Autocalibration Suite
 License:        GPL
@@ -12,6 +12,8 @@ Requires:       python
 Requires:		python-gevent-websocket
 Requires:       numpy
 Requires:		scipy
+Requires:       glibc-devel
+Requires:       fping
 AutoReqProv:    no
 
 %define python_sitelib %(python -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")
@@ -59,6 +61,8 @@ ln -sr bin/imgd.6 ../../../../..%{_bindir}/imgd
 
 
 %changelog
+* Thu Mar 21 2019 Stu<stu@quantumdetectors.com>
+- Update binaries, minor fixes
 * Tue Jan 22 2019 Stu<stu@quantumdetectors.com>
 - Add X4
 * Wed Apr 25 2018 Stu<stu@quantumdetectors.com>
