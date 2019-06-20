@@ -1,6 +1,6 @@
 Name:           xspress3-autocalib
 Version:        1
-Release:        8%{?dist}
+Release:        9%{?dist}
 Url:            https://gitlab.com/xspress3/xspress3-autocalib
 Summary:        Xspress 3 Autocalibration Suite
 License:        GPL
@@ -61,6 +61,8 @@ ln -sr bin/imgd.6 ../../../../..%{_bindir}/imgd
 
 
 %changelog
+* Wed Jun 19 2019 Liam<liam@quantumdetectors.com>
+- Update binaries, updated libraries for picozed Rev-E
 * Thu Mar 21 2019 Stu<stu@quantumdetectors.com>
 - Update binaries, minor fixes
 * Tue Jan 22 2019 Stu<stu@quantumdetectors.com>

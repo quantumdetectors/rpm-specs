@@ -1,6 +1,6 @@
 Name:           lima-xspress3
 Version:        1.74
-Release:        2%{?dist}
+Release:        3%{?dist}
 Url:            https://github.com/quantumdetectors/Lima-camera-xspress3
 Summary:        Lima Xspress 3 Device Server
 License:        GPL
@@ -130,6 +130,8 @@ export TANGO_HOST=localhost:10000
 %{python_sitelib}/Lima/xspress3/createdevice.py -n xspress3
 
 %changelog
+* Wed Jun 19 2019 Liam<liam@quantumdetectors.com>
+- Update libraries and headers for RevE
 * Fri Feb 15 2019 Stu<stu@quantumdetectors.com>
 – SDK Bump, X4 Support
 * Fri Jun 30 2017 Stu<stu@quantumdetectors.com>
