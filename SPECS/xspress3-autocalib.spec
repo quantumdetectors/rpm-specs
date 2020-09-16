@@ -1,6 +1,6 @@
 Name:           xspress3-autocalib
 Version:        1
-Release:        11%{?dist}
+Release:        12%{?dist}
 Url:            https://gitlab.com/xspress3/xspress3-autocalib
 Summary:        Xspress 3 Autocalibration Suite
 License:        GPL
