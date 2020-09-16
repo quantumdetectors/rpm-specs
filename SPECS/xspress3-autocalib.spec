@@ -1,6 +1,6 @@
 Name:           xspress3-autocalib
 Version:        1
-Release:        10%{?dist}
+Release:        11%{?dist}
 Url:            https://gitlab.com/xspress3/xspress3-autocalib
 Summary:        Xspress 3 Autocalibration Suite
 License:        GPL
@@ -61,6 +61,8 @@ ln -sr bin/imgd.6 ../../../../..%{_bindir}/imgd
 
 
 %changelog
+* Wed Sep 16 2020 Liam<liam@quantumdetectors.com>
+- Update to library and X3 server to support X3X fan control hardware
 * Thu Jan 16 2020 Richard<richard@quantumdetectors.com>
 - Versioning and automatic copyright update.
 * Wed Jun 19 2019 Liam<liam@quantumdetectors.com>
