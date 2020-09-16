@@ -1,7 +1,7 @@
 Name:           epics-xspress3
 Version:        1
 %define         subversion 13
-Release:        6%{?dist}
+Release:        7%{?dist}
 Url:            https://github.com/quantumdetectors/xspress3-epics
 Summary:        EPICS Xspress 3 Module
 License:        GPL
@@ -158,6 +158,8 @@ ln -sr xspress3-ioc.sh ../../../../..%{_bindir}/
 
 
 %changelog
+* Wed Sep 16 2020 Liam<liam@quantumdetectors.com>
+- Update library and X3 server for X3X fan control
 * Wed Jun 19 2019 Liam<liam@quantumdetectors.com>
 - Update library and headers for RevE 
 * Tue Jan 22 2019 Stu<stu@quantumdetectors.com>
