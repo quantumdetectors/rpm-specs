@@ -168,7 +168,7 @@ ln -sr xspress3-ioc.sh ../../../../..%{_bindir}/
 - Remove x3.server and imgd
 * Wed Feb 7 2018 Stu<stu@quantumdetectors.com>
 - Update all ROI/SCA lengths, remove old settings, add epics.sh
-* Thu Jan 10 2018 Stu<stu@quantumdetectors.com>
+* Thu Jan 11 2018 Stu<stu@quantumdetectors.com>
 - Add devel package dependencies
 * Mon Aug 21 2017 Stu<stu@quantumdetectors.com>
 - 2 channel ioc
