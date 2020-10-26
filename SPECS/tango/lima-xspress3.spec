@@ -10,12 +10,12 @@ Requires:       python-pytango
 Requires:       python-gevent
 Requires:       numpy
 Requires:       gsl
-Requires:       hdf5
+Requires:       hdf5 = 1.10.7
 BuildRequires:  git
 BuildRequires:  gsl-devel
 BuildRequires:  sip = 4.19.8
 BuildRequires:  chrpath
-BuildRequires:  hdf5-devel
+BuildRequires:  hdf5-devel = 1.10.7
 AutoReqProv:    no
 
 # Run this spec with:
